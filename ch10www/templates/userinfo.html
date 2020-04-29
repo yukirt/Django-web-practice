@@ -2,6 +2,11 @@
 {% block title %}分享日記{% endblock %}
 {% block content %}
 <div class="container">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        {{ message }}
+    </div>
+    {% endfor %}
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -18,12 +23,20 @@
                     {{ userinfo.user.username | upper }}
                 </div>
                 <div class="panel panel-body">
-                    電子郵件： {{ userinfo.user.email }}<br>
-                    身高： {{ userinfo.height }}<br>
-                    性別： {{ userinfo.male }}
+                    電子郵件： {{ userinfo.user.email }}<br />
+                    身高： {{ userinfo.height }}<br />
+                    性別： {{ userinfo.male }} <br />
+                    個人網站：<a href="{{ profile.website }}">{{ profile.website }}</a>
                 </div>
             </div>
         </div>
     </div>
+    <form action="." method="post" name="myname">
+        {% csrf_token %}
+        <table>
+            {{ profile_form.as_table }}
+        </table>
+        <input type="submit" value="修改個人資料">
+    </form>
 </div>
 {% endblock %}
