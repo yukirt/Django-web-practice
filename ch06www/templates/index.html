@@ -1,0 +1,20 @@
+<!-- index.html -->
+{% extends "base.html" %}
+{% block title %}電視新聞直播{% endblock %}
+{% block tvname %} {{tv.name}}{% endblock %}
+{% block menu %}
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="{% url 'tv-url' 0 %}">東森</a></li>
+                <li><a href="{% url 'tv-url' 1 %}">民視</a></li>
+                <li><a href="{% url 'tv-url' 2 %}">台視</a></li>
+                <li><a href="{% url 'tv-url' 3 %}">華視</a></li>
+            </ul>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="tvcode" align='center'>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ tv.tvcode }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock %}
