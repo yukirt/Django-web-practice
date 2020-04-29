@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/', views.login),
     path("logout/", views.logout),
     path("userinfo/", views.userinfo),
+    path("post/", views.posting)
     # path("<int:pid>/<str:del_pass>", views.index),
     # path('list/', views.listing),
     # path('post/', views.posting),
