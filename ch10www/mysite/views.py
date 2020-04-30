@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
-from mysite import models, forms
+from . import models, forms
 from django.contrib.sessions.models import Session
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate
